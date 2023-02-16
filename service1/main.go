@@ -31,7 +31,7 @@ func Generate() string {
 }
 
 func main() {
-	port := flag.String("addr", ":8080", `Network Port
+	port := flag.String("addr", ":3000", `Network Port
 	USAGE:
 	--addr=:8080`)
 	flag.Parse()
