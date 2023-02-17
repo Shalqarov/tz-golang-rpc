@@ -3,10 +3,11 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"net/rpc"
+
 	"tz/models"
 )
 
@@ -38,11 +39,12 @@ func main() {
 	}
 	defer res.Body.Close()
 
-	body, err := ioutil.ReadAll(res.Body)
+	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
+
 	json.Unmarshal(body, &user)
 	user.Email = "asd@asd"
 	user.Password = "12345"
